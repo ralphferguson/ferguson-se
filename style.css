@@ -177,9 +177,56 @@ h3 {
   margin-bottom: 0.75rem;
 }
 
-article p:last-child {
+.case {
+  margin: 0;
+}
+.case dt {
+  font-size: 0.75rem;
+  font-weight: 520;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-top: 1.4em;
+}
+.case dt:first-child { margin-top: 0; }
+.case dd {
+  margin: 0.3em 0 0;
+  text-wrap: pretty;
+}
+.impact {
   color: var(--wine);
-  font-weight: 430;
+  font-weight: 420;
+}
+.impact strong {
+  font-weight: 620;
+}
+
+/* ---------- timeline + hire ---------- */
+
+.timeline {
+  font-size: 0.875rem;
+  color: var(--soft);
+  letter-spacing: 0.01em;
+  margin-bottom: 1.9rem;
+}
+.timeline span {
+  font-variant-numeric: lining-nums;
+  font-weight: 340;
+  white-space: nowrap;
+}
+
+.hire {
+  list-style: none;
+  padding: 0;
+}
+.hire li { text-wrap: pretty; }
+.hire li + li { margin-top: 1.4em; }
+.hire strong {
+  display: block;
+  font-weight: 560;
+  font-size: 1.0625em;
+  letter-spacing: -0.005em;
+  margin-bottom: 0.15em;
 }
 
 /* ---------- how i think ---------- */
