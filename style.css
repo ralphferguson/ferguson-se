@@ -1,0 +1,273 @@
+/* ferguson.se — one page, one stylesheet.
+   Fraunces variable (roman + italic), warm paper, one wine accent. */
+
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("fonts/fraunces-var.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Fraunces";
+  font-style: italic;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("fonts/fraunces-italic-var.woff2") format("woff2");
+}
+
+:root {
+  --paper: #faf6f0;
+  --ink: #221d17;
+  --soft: #5c5348;
+  --line: #e5dccd;
+  --wine: #8b3a3a;
+
+  --fs-0: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);   /* body */
+  --fs-1: clamp(1.25rem, 1.05rem + 0.9vw, 1.5rem);     /* lede, questions */
+  --fs-2: clamp(1.375rem, 1.15rem + 1vw, 1.75rem);     /* h3 */
+  --fs-big: clamp(2.75rem, 1.5rem + 6.5vw, 5.5rem);    /* h1 */
+
+  --measure: 37rem;
+}
+
+* { margin: 0; box-sizing: border-box; }
+
+html { color-scheme: light; }
+
+body {
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  font-optical-sizing: auto;
+  font-synthesis: none;
+  font-size: var(--fs-0);
+  font-weight: 385;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--wine); color: var(--paper); }
+
+/* ---------- structure ---------- */
+
+.wrap {
+  max-width: 64rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 3rem);
+}
+
+.skip {
+  position: absolute;
+  left: -100vw;
+  top: 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.5rem 1rem;
+}
+.skip:focus {
+  left: 0;
+  z-index: 1;
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  padding-block: clamp(4.5rem, 16vh, 8.5rem) clamp(3.5rem, 9vh, 5.5rem);
+}
+
+.meta {
+  font-size: 0.8125rem;
+  font-weight: 480;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+.meta::before {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: var(--wine);
+  margin-right: 0.75em;
+  vertical-align: 0.05em;
+}
+
+h1 {
+  font-size: var(--fs-big);
+  font-weight: 580;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  margin-block: 0.35em 0.4em;
+  max-width: 14em;
+}
+
+.lede {
+  font-size: var(--fs-1);
+  font-weight: 360;
+  line-height: 1.5;
+  max-width: 36rem;
+  text-wrap: pretty;
+}
+
+.hero-links {
+  margin-top: 2.25rem;
+  font-size: 1rem;
+}
+.hero-links .sep {
+  color: var(--soft);
+  margin-inline: 0.6em;
+}
+
+/* ---------- sections ---------- */
+
+section {
+  border-top: 1px solid var(--line);
+  padding-block: clamp(2.75rem, 7vh, 4.5rem);
+}
+
+h2 {
+  font-size: 0.8125rem;
+  font-weight: 520;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-bottom: 1.75rem;
+}
+
+@media (min-width: 56rem) {
+  section {
+    display: grid;
+    grid-template-columns: 13rem minmax(0, var(--measure));
+    column-gap: clamp(2rem, 6vw, 5rem);
+  }
+  h2 { margin-bottom: 0; padding-top: 0.45em; }
+}
+
+.body { max-width: var(--measure); }
+
+.body p + p { margin-top: 1.1em; }
+
+.body p { text-wrap: pretty; }
+
+/* ---------- shipped ---------- */
+
+.section-intro {
+  color: var(--soft);
+  font-style: italic;
+  font-weight: 370;
+}
+
+article {
+  margin-top: 2.5rem;
+}
+article + article {
+  border-top: 1px solid var(--line);
+  padding-top: 2.5rem;
+}
+
+h3 {
+  font-size: var(--fs-2);
+  font-weight: 560;
+  line-height: 1.2;
+  letter-spacing: -0.008em;
+  text-wrap: balance;
+  margin-bottom: 0.75rem;
+}
+
+article p:last-child {
+  color: var(--wine);
+  font-weight: 430;
+}
+
+/* ---------- how i think ---------- */
+
+.questions {
+  list-style: none;
+  padding: 0;
+  margin-block: 1.75rem;
+  counter-reset: q;
+}
+.questions li {
+  counter-increment: q;
+  display: grid;
+  grid-template-columns: 2.75rem 1fr;
+  align-items: baseline;
+  font-size: var(--fs-1);
+  font-style: italic;
+  font-weight: 380;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+.questions li + li { margin-top: 1.1rem; }
+.questions li::before {
+  content: counter(q);
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.1em;
+  color: var(--wine);
+  font-variant-numeric: lining-nums;
+}
+
+/* ---------- contact ---------- */
+
+address {
+  font-style: normal;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: flex-start;
+}
+.mail {
+  font-size: var(--fs-2);
+  font-weight: 540;
+  letter-spacing: -0.008em;
+}
+.social { font-size: 1rem; }
+
+/* ---------- footer ---------- */
+
+footer {
+  border-top: 1px solid var(--line);
+  padding-block: 2.25rem 3.5rem;
+}
+footer p {
+  font-size: 0.875rem;
+  color: var(--soft);
+  max-width: var(--measure);
+}
+
+/* ---------- links ---------- */
+
+a {
+  color: var(--wine);
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in srgb, var(--wine) 35%, transparent);
+  text-underline-offset: 0.18em;
+  transition: text-decoration-color 120ms ease;
+}
+a:hover { text-decoration-color: var(--wine); }
+a:focus-visible {
+  outline: 2px solid var(--wine);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+footer a { color: var(--soft); }
+
+/* ---------- motion ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero > * {
+    animation: rise 0.55s cubic-bezier(0.2, 0.6, 0.2, 1) both;
+  }
+  .hero > :nth-child(2) { animation-delay: 60ms; }
+  .hero > :nth-child(3) { animation-delay: 120ms; }
+  .hero > :nth-child(4) { animation-delay: 180ms; }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(0.6rem); }
+  to   { opacity: 1; transform: none; }
+}
