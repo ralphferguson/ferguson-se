@@ -6,7 +6,7 @@ variable font (Fraunces), zero JavaScript, no build step, no dependencies.
 ```
 index.html    the page
 style.css     the stylesheet
-fonts/        Fraunces variable (roman + italic, latin subset, ~150 KB total)
+fonts/        Fraunces variable (roman + italic, latin subset, ~150 KB total) + OFL license
 ```
 
 ## Preview locally
@@ -21,9 +21,8 @@ python3 -m http.server 8080
 
 ## Deploying
 
-**The site is live at https://ferguson.se**, hosted on Netlify (project
-`ferguson-se` on the personal admin@ferguson.se account — deliberately not the
-FGS team). The GitHub repo is connected for auto-deploy:
+**The site is live at https://ferguson.se**, hosted on Netlify. The GitHub
+repo is connected for auto-deploy:
 
 > **Pushing to `main` publishes to production** (live within ~30 s). Treat a
 > push as a deploy — verify locally first.
