@@ -24,11 +24,14 @@
   --wine: #8b3a3a;
 
   --fs-0: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);   /* body */
-  --fs-1: clamp(1.25rem, 1.05rem + 0.9vw, 1.5rem);     /* lede, questions */
-  --fs-2: clamp(1.375rem, 1.15rem + 1vw, 1.75rem);     /* h3 */
+  --fs-1: clamp(1.25rem, 1.05rem + 0.9vw, 1.5rem);     /* lede, questions, cta */
+  --fs-2: clamp(1.375rem, 1.15rem + 1vw, 1.75rem);     /* pull quote, mail */
   --fs-big: clamp(2.75rem, 1.5rem + 6.5vw, 5.5rem);    /* h1 */
 
   --measure: 37rem;
+  --label-col: 13rem;
+  --gutter: clamp(2rem, 6vw, 5rem);
+  --band: clamp(2.75rem, 7vh, 4.5rem);
 }
 
 * { margin: 0; box-sizing: border-box; }
@@ -113,8 +116,15 @@ h1 {
 }
 
 .lede-sub {
-  margin-top: 1.1rem;
-  max-width: 36rem;
+  margin-top: 1.15rem;
+  max-width: 34rem;
+  text-wrap: pretty;
+}
+
+.hero-cred {
+  margin-top: 0.85rem;
+  max-width: 34rem;
+  font-size: 1rem;
   color: var(--soft);
   text-wrap: pretty;
 }
@@ -132,7 +142,7 @@ h1 {
 
 section {
   border-top: 1px solid var(--line);
-  padding-block: clamp(2.75rem, 7vh, 4.5rem);
+  padding-block: var(--band);
 }
 
 h2 {
@@ -145,12 +155,14 @@ h2 {
 }
 
 @media (min-width: 56rem) {
-  section {
+  section,
+  .pull {
     display: grid;
-    grid-template-columns: 13rem minmax(0, var(--measure));
-    column-gap: clamp(2rem, 6vw, 5rem);
+    grid-template-columns: var(--label-col) minmax(0, var(--measure));
+    column-gap: var(--gutter);
   }
   h2 { margin-bottom: 0; padding-top: 0.45em; }
+  .pull p { grid-column: 2; }
 }
 
 .body { max-width: var(--measure); }
@@ -159,76 +171,15 @@ h2 {
 
 .body p { text-wrap: pretty; }
 
-/* ---------- shipped ---------- */
+/* ---------- what i bring ---------- */
 
-.section-intro {
-  color: var(--soft);
-  font-style: italic;
-  font-weight: 370;
-}
-
-article {
-  margin-top: 2.5rem;
-}
-article + article {
-  border-top: 1px solid var(--line);
-  padding-top: 2.5rem;
-}
-
-h3 {
-  font-size: var(--fs-2);
-  font-weight: 560;
-  line-height: 1.2;
-  letter-spacing: -0.008em;
-  text-wrap: balance;
-  margin-bottom: 0.75rem;
-}
-
-.case {
-  margin: 0;
-}
-.case dt {
-  font-size: 0.75rem;
-  font-weight: 520;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--soft);
-  margin-top: 1.4em;
-}
-.case dt:first-child { margin-top: 0; }
-.case dd {
-  margin: 0.3em 0 0;
-  text-wrap: pretty;
-}
-.impact {
-  color: var(--wine);
-  font-weight: 420;
-}
-.impact strong {
-  font-weight: 620;
-}
-
-/* ---------- timeline + hire ---------- */
-
-.timeline {
-  font-size: 0.875rem;
-  color: var(--soft);
-  letter-spacing: 0.01em;
-  margin-bottom: 1.9rem;
-}
-.timeline span {
-  font-variant-numeric: lining-nums;
-  font-weight: 340;
-  white-space: nowrap;
-}
-
-.hire {
+.bring {
   list-style: none;
   padding: 0;
 }
-.hire li { text-wrap: pretty; }
-.hire li + li { margin-top: 1.4em; }
-.hire strong {
+.bring li { text-wrap: pretty; }
+.bring li + li { margin-top: 1.4em; }
+.bring strong {
   display: block;
   font-weight: 560;
   font-size: 1.0625em;
@@ -236,7 +187,63 @@ h3 {
   margin-bottom: 0.15em;
 }
 
-/* ---------- how i think ---------- */
+/* ---------- pull quote ---------- */
+
+.pull {
+  padding-bottom: var(--band);
+}
+.pull p {
+  font-size: var(--fs-2);
+  font-weight: 420;
+  line-height: 1.3;
+  letter-spacing: -0.008em;
+  max-width: 30rem;
+  text-wrap: balance;
+}
+
+/* ---------- experience ---------- */
+
+.roles {
+  list-style: none;
+  padding: 0;
+}
+.roles li + li { margin-top: 2.25rem; }
+
+.role-years {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--soft);
+  font-variant-numeric: lining-nums;
+}
+
+.roles h3 {
+  margin-top: 0.2rem;
+  font-size: 1.125rem;
+  font-weight: 560;
+  line-height: 1.35;
+  letter-spacing: -0.006em;
+  text-wrap: balance;
+}
+.roles h3 span {
+  font-weight: 380;
+  color: var(--soft);
+  letter-spacing: 0;
+}
+.roles h3 span::before {
+  content: "—";
+  margin-inline: 0.4em;
+}
+
+.roles h3 + p { margin-top: 0.4em; }
+
+@media (max-width: 30rem) {
+  .roles h3 span { display: block; }
+  .roles h3 span::before { content: none; }
+}
+
+/* ---------- how i work ---------- */
 
 .questions {
   list-style: none;
@@ -255,6 +262,9 @@ h3 {
   line-height: 1.35;
   text-wrap: balance;
 }
+@media (max-width: 30rem) {
+  .questions li { grid-template-columns: 1.9rem 1fr; }
+}
 .questions li + li { margin-top: 1.1rem; }
 .questions li::before {
   content: counter(q);
@@ -266,6 +276,13 @@ h3 {
 }
 
 /* ---------- contact ---------- */
+
+.cta {
+  font-size: var(--fs-1);
+  font-weight: 370;
+  line-height: 1.45;
+  max-width: 32rem;
+}
 
 address {
   font-style: normal;
@@ -281,6 +298,12 @@ address {
   letter-spacing: -0.008em;
 }
 .social { font-size: 1rem; }
+
+.contact-note {
+  margin-top: 1.9rem;
+  font-size: 0.9375rem;
+  color: var(--soft);
+}
 
 /* ---------- footer ---------- */
 
@@ -321,6 +344,7 @@ footer a { color: var(--soft); }
   .hero > :nth-child(3) { animation-delay: 120ms; }
   .hero > :nth-child(4) { animation-delay: 180ms; }
   .hero > :nth-child(5) { animation-delay: 240ms; }
+  .hero > :nth-child(6) { animation-delay: 300ms; }
 }
 @keyframes rise {
   from { opacity: 0; transform: translateY(0.6rem); }

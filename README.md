@@ -41,6 +41,11 @@ removed — if the site ever mysteriously breaks, check for that record first.
 ## Content rules
 
 Copy is sourced from Ralph's real career facts only. Business metrics on this
-public page are deliberately qualitative ("roughly tripled", "majority of
-revenue") — exact internal figures are reserved for private applications and
-interviews. Keep it that way when editing.
+public page are deliberately qualitative ("around ten percent", "one person to a
+team of eight") — exact internal figures are reserved for private applications
+and interviews. Keep it that way when editing.
+
+The page is structured for a hiring reader scanning for 30–60 seconds:
+hero (positioning) → what I bring → experience → how I work → contact. Keep that
+rhythm; the page should still make sense when only headings and bold text are
+read. Resist growing it back into a full CV or an essay.
