@@ -9,6 +9,36 @@ style.css     the stylesheet
 fonts/        Fraunces variable (roman + italic, latin subset, ~150 KB total) + OFL license
 ```
 
+## How the page is put together
+
+One `<header class="hero">` and four `<section>`s, in the order a hiring reader
+needs them: hero (positioning) → what I bring → experience → how I work →
+contact. A standalone `<aside class="pull">` carries the "one loop" line between
+value and evidence.
+
+Layout conventions, all in `style.css`:
+
+- Section headings (`h2`) are small uppercase eyebrow labels, not titles. Above
+  `56rem` each section becomes a two-column grid — label left, content right —
+  using `--label-col` and `--gutter`. `.pull` opts into the same grid so the
+  quote aligns with the content column.
+- `--measure` (37rem) is the content column width; `--band` is the vertical
+  padding every section and the pull quote share. Change the rhythm there, not
+  per-section.
+- Component classes are one per section: `.bring`, `.roles`, `.questions`,
+  `.cta`. `.mail` is the contact CTA.
+- Below `30rem` two things change deliberately: a role title stacks under the
+  company with no leading em dash (it would otherwise wrap onto its own line
+  alone), and the numbered questions get a narrower gutter.
+- The only motion is the hero's staggered fade-in, behind
+  `prefers-reduced-motion: no-preference`. The delays are `nth-child`-based, so
+  adding or reordering hero elements means updating them.
+
+Check both widths before pushing. Headless Chrome enforces a minimum window
+width, so a `--window-size=390,…` screenshot silently renders wider than 390px
+and looks clipped; load the page in a 390px-wide `<iframe>` on a wrapper page
+and screenshot that instead.
+
 ## Preview locally
 
 Open `index.html` directly in a browser, or serve it (needed for the font
