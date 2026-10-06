@@ -11,25 +11,20 @@ fonts/        Fraunces variable (roman + italic, latin subset, ~150 KB total) + 
 
 ## How the page is put together
 
-One `<header class="hero">` and four `<section>`s, in the order a hiring reader
-needs them: hero (positioning) → what I bring → experience → how I work →
-contact. A standalone `<aside class="pull">` carries the "one loop" line between
-value and evidence.
+One `<header class="hero">` and four `<section>`s: hero (positioning) → how I
+work → experience → how I can help → let's talk.
 
 Layout conventions, all in `style.css`:
 
 - Section headings (`h2`) are small uppercase eyebrow labels, not titles. Above
   `56rem` each section becomes a two-column grid — label left, content right —
-  using `--label-col` and `--gutter`. `.pull` opts into the same grid so the
-  quote aligns with the content column.
+  using `--label-col` and `--gutter`.
 - `--measure` (37rem) is the content column width; `--band` is the vertical
-  padding every section and the pull quote share. Change the rhythm there, not
-  per-section.
-- Component classes are one per section: `.bring`, `.roles`, `.questions`,
+  padding every section shares. Change the rhythm there, not per-section.
+- Component classes: `.principles` (the bold-led list in how I work), `.roles`,
   `.cta`. `.mail` is the contact CTA.
-- Below `30rem` two things change deliberately: a role title stacks under the
-  company with no leading em dash (it would otherwise wrap onto its own line
-  alone), and the numbered questions get a narrower gutter.
+- Below `30rem` a role title stacks under the company with no leading em dash
+  (it would otherwise wrap onto its own line alone).
 - The only motion is the hero's staggered fade-in, behind
   `prefers-reduced-motion: no-preference`. The delays are `nth-child`-based, so
   adding or reordering hero elements means updating them.
@@ -71,11 +66,13 @@ removed — if the site ever mysteriously breaks, check for that record first.
 ## Content rules
 
 Copy is sourced from Ralph's real career facts only. Business metrics on this
-public page are deliberately qualitative ("around ten percent", "one person to a
+public page are deliberately qualitative ("around 10%", "one person to a
 team of eight") — exact internal figures are reserved for private applications
 and interviews. Keep it that way when editing.
 
-The page is structured for a hiring reader scanning for 30–60 seconds:
-hero (positioning) → what I bring → experience → how I work → contact. Keep that
-rhythm; the page should still make sense when only headings and bold text are
-read. Resist growing it back into a full CV or an essay.
+The page speaks to two readers at once: someone hiring for a product leadership
+role, and someone with a problem to work on together (founders, consulting
+clients). Copy should work for both — the closing sections name both explicitly
+— without tipping into a pure CV or a pure services page. Assume a 30–60 second
+skim: the page should still make sense when only headings and bold text are
+read. Resist growing it into a full CV or an essay.
