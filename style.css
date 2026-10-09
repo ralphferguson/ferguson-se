@@ -169,23 +169,6 @@ h2 {
 
 .body p { text-wrap: pretty; }
 
-/* ---------- how i work ---------- */
-
-.principles {
-  list-style: none;
-  padding: 0;
-  margin-block: 1.4em;
-}
-.principles li { text-wrap: pretty; }
-.principles li + li { margin-top: 1.4em; }
-.principles strong {
-  display: block;
-  font-weight: 560;
-  font-size: 1.0625em;
-  letter-spacing: -0.005em;
-  margin-bottom: 0.15em;
-}
-
 /* ---------- experience ---------- */
 
 .roles {

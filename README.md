@@ -12,7 +12,7 @@ fonts/        Fraunces variable (roman + italic, latin subset, ~150 KB total) + 
 ## How the page is put together
 
 One `<header class="hero">` and four `<section>`s: hero (positioning) → how I
-work → experience → how I can help → let's talk.
+work → experience → what I can help with → get in touch.
 
 Layout conventions, all in `style.css`:
 
@@ -21,8 +21,7 @@ Layout conventions, all in `style.css`:
   using `--label-col` and `--gutter`.
 - `--measure` (37rem) is the content column width; `--band` is the vertical
   padding every section shares. Change the rhythm there, not per-section.
-- Component classes: `.principles` (the bold-led list in how I work), `.roles`,
-  `.cta`. `.mail` is the contact CTA.
+- Component classes: `.roles`, `.cta`. `.mail` is the contact CTA.
 - Below `30rem` a role title stacks under the company with no leading em dash
   (it would otherwise wrap onto its own line alone).
 - The only motion is the hero's staggered fade-in, behind
